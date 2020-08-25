@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import ReactPlayer from 'react-player';
 import { Link } from 'react-router-dom';
 import { Jumbotron, Container, Row, Col, Grid, Image, Button, Tab, Nav} from 'react-bootstrap';
-import blogdata from './blog_entries.json';
-import '../stylesheets/About.css';
+import blogdata from '../blog_entries.json';
+import '../stylesheets/Blog.css';
 
 export default class Blog extends Component {
 
@@ -10,79 +11,83 @@ export default class Blog extends Component {
         super(props);
         this.state = {
             entries: [],
-            validYears: [],
-            selectedYear: null,
-            selectedMonth: null,
-            selectedDay: null
+            selectedDate: null,
+            selectedEntry: null
         };
     }
 
     componentDidMount() {
         this.setState({ entries: blogdata });
-        var validYears = [];
-        for (var entry of blogdata) {
-            let year = entry.date.split("-")[0];
-            if (validYears.indexOf(year) === -1) {
-                validYears.push(year);
+        this.setState({ selectedDate: blogdata[0].date });
+        this.setState({ selectedEntry: blogdata[0] });
+    }
+
+    toggleSelectedDate = (selectedDate) => {
+        this.setState({ selectedDate: selectedDate });
+        for (let entry of this.state.entries) {
+            if (entry.date === selectedDate) {
+                this.setState({ selectedEntry: entry});
             }
         }
-        this.setState({ validYears: validYears });
-        // Auto-select max year by default
-        this.setState({ selectedYear: Math.max.apply(null, validYears)});
     }
 
-    getYears = () => {
-        return this.state.validYears.map((year, index) => {
-            return (
-                <Nav.Item key={year}>
-                    <Nav.Link eventKey={year}>{year}</Nav.Link>
-                </Nav.Item>
-            );
-        });
-    }
 
-    getMonths = () => {
-        let validMonths = [];
+    getDates = () => {
+        let validDates = [];
         for (var entry of this.state.entries) {
-            let dateArray = entry.date.split("-");
-            if (dateArray[0] === this.state.selectedYear) {
-                if (validMonths.indexOf(dateArray[1]) === -1) {
-                    validMonths.push(dateArray[1]);
-                }
-            }
+            validDates.push(entry.date);
         }
-        return validMonths.map((month, index) => {
+        return validDates.map((date, index) => {
             return (
-                <Nav.Item key={month}>
-                  <Nav.Link eventKey={index}>{month}</Nav.Link>
+                <Nav.Item key={date}>
+                    <Nav.Link eventKey={date}>{new Date(date).toDateString()}</Nav.Link>
                 </Nav.Item>
             );
         });
     }
 
-    getDays = () => {
-        
+    getVideos = () => {
+        let videoUrls = [];
+        if (this.state.selectedEntry.media &&
+            this.state.selectedEntry.media.videos &&
+			this.state.selectedEntry.media.videos.length > 0) {
+            for (let videoUrl of this.state.selectedEntry.media.videos) {
+                videoUrls.push(videoUrl);
+            }
+        }
+        return videoUrls.map((videoUrl, index) => {
+            return (
+                <ReactPlayer url={videoUrl}/>
+            );
+        });
     }
 
     render() {
-        if (this.state.validYears && this.state.validYears.length > 0) {
+        if (this.state.entries && this.state.entries.length > 0) {
             return (
                 <div style={{ marginLeft: 50, marginTop: 50, marginRight: 50, marginBottom: 50 }}>
+						<hr/>
+						<Row>
+							<Col sm={2}>
+								<h4>Date</h4>
+                            </Col>
+							<Col sm={10}>
+								<h4>Entry</h4>
+                            </Col>
+                        </Row>
+						<hr/>
                         <Row>
-                            <Col sm={1}>
-                                <Nav variant="pills" className="flex-column" defaultActiveKey={this.state.selectedYear} onSelect={(selectedYear) => this.setState({selectedYear: selectedYear})}>
-                                    {this.getYears()}
+                            <Col sm={2}>
+                                <Nav variant="pills" className="flex-column" defaultActiveKey={this.state.selectedDate} onSelect={(selectedDate) => this.toggleSelectedDate(selectedDate)}>
+                                    {this.getDates()}
                                 </Nav>
                             </Col>
-                            <Col sm={1}>
-								<Nav variant="pills" className="flex-column" defaultActiveKey={0} onSelect={(selectedMonth) => this.setState({selectedMonth: selectedMonth})}>
-									{this.state.selectedYear !== null ? this.getMonths() : null}
-								</Nav>
-                            </Col>
-							<Col sm = {1}>
-								<Nav variant="pills" className="flex-column" defaultActiveKey={0} onSelect={(selectedDay) => this.setState({selectedDay: selectedDay})}>
-									{this.state.selectedMonth !== null ? this.getDays(): null}
-                                </Nav>
+                            <Col sm={10}>
+								<p style={{marginBottom: "10px"}}>
+								{this.state.selectedEntry.entryText}
+								</p>
+								<br/>
+								{this.getVideos()}
                             </Col>
                         </Row>
                 </div>

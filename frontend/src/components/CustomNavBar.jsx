@@ -3,7 +3,7 @@ import { Navbar, Nav, Brand } from 'react-bootstrap';
 import { Link, withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import '../stylesheets/CustomNavBar.css';
-import logo from './softwareicontransparent.png';
+import logo from '../media/softwareicontransparent.png';
 
 class CustomNavBar extends Component {
 

@@ -1,0 +1,10 @@
+[
+	{"date": "2020-08-25",
+	 "entryText": "After taking quite the break from Unity (I haven't worked with it in a good while), I came across some posts showing what has been/what's being added to the engine lately and I'm impressed; it's really interesting stuff - particularily what they're doing with their new DOTS framework and \"Burst Compiler\". DOTS is supposed to make it much easier to allow games to make use of multicore processors and multithreading in general, while their \"Burst Compiler\" utilizes JIT compilation to allow C# Unity code to run essentially as fast or faster than if it were written in C++ (just what I've heard). I have to say I'm skeptical about that last part but am eager to dive back into Unity at least for a while to see if this is true. I was looking for an excuse to lately anyways.",
+	"media": {"videos": ["https://www.youtube.com/watch?v=Z9-WkwdDoNY"]}
+	},
+
+	{"date": "2020-08-23",
+	 "entryText": "I've finally put together a blog/portfolio site! It took very little time to put together, but was just one of those things I never prioritized or got around to. While its not stylized quite how I'd like, it'll work for now. I can always refresh it later - I had been meaning to try out semantic UI as opposed to bootstrap and material UI anyways, so that would provide for a good excuse to do so."
+	}
+]

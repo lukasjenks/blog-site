@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Jumbotron, Container, Row, Col, Image, Button, Tab, Nav} from 'react-bootstrap';
-import '../stylesheets/About.css';
+import '../stylesheets/Projects.css';
 
 export default class Projects extends Component {
 	render() {
 		return (
             <div style={{marginLeft: 50, marginTop: 50, marginRight: 50, marginBottom: 50}}>
+            <hr/>
             <h4>Solo Projects</h4>
+            <hr/>
 			<Tab.Container id="left-tabs-example" defaultActiveKey={1}>
 			  <Row>
 				<Col sm={3}>
@@ -53,14 +55,14 @@ export default class Projects extends Component {
 			</Tab.Container>
             <br/>
             <hr/>
-            <br/>
 			<h4>Group Projects</h4>
-			<Tab.Container id="left-tabs-example" defaultActiveKey={1} style={{marginLeft: 100}}>
+            <hr/>
+			<Tab.Container className="myClass" id="left-tabs-example" defaultActiveKey={1} style={{marginLeft: 100}}>
 			  <Row>
 				<Col sm={3}>
-				  <Nav variant="pills" className="flex-column">
-					<Nav.Item>
-					  <Nav.Link eventKey={1}>Alberta Game Jam 2019 Project</Nav.Link>
+				  <Nav className="myClass" variant="pills" className="flex-column">
+					<Nav.Item className="myClass">
+					  <Nav.Link className="myClass" eventKey={1}>Alberta Game Jam 2019 Project</Nav.Link>
 					</Nav.Item>
                     <Nav.Item>
                       <Nav.Link eventKey={2}>HackED 2020 Project</Nav.Link>
