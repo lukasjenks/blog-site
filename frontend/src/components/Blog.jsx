@@ -88,6 +88,7 @@ export default class Blog extends Component {
 								</p>
 								<br/>
 								{this.getVideos()}
+								<br/>
                             </Col>
                         </Row>
                 </div>
