@@ -91,6 +91,7 @@ export default class Blog extends Component {
 								<br/>
                             </Col>
                         </Row>
+						<br/>
                 </div>
             );
         } else {

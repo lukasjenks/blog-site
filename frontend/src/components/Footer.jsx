@@ -9,7 +9,7 @@ class Footer extends Component {
 
 	render() {
 		return(
-			<div className="fixed-bottom" style={{marginTop: "0", marginBottom: "0"}}>
+			<div className="fixed-bottom" style={{marginTop: "15", marginBottom: "0"}}>
 				<Navbar default collapseOnSelect bg="dark" variant="dark">
 					<Navbar.Collapse id="responsive-navbar-nav" className="justify-content-center">
 						<Navbar.Text>Lukas Jenks Ⓒ Copyright 2020. All rights reserved.</Navbar.Text>

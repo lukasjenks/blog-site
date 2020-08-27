@@ -16,7 +16,7 @@ func main() {
         methods := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE"})
         origins := handlers.AllowedOrigins([]string{"*"})
 
-        router.PathPrefix("/").Handler(http.FileServer(http.Dir("/home/lukas/Documents/Projects/blog-site/frontend/build")))
-		router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("/home/lukas/Documents/Projects/blog-site/frontend/build/static"))))
+        router.PathPrefix("/").Handler(http.FileServer(http.Dir("/home/debian/blog-site/frontend/build")))
+		router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("/home/debian/blog-site/frontend/build/static"))))
         http.ListenAndServe(":3000", handlers.CORS(headers, methods, origins)(router))
 }

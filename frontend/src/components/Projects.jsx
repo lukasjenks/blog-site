@@ -75,7 +75,7 @@ export default class Projects extends Component {
 				<Col sm={9}>
 				  <Tab.Content>
 					<Tab.Pane eventKey={1}>
-					  <p>Using the Godot game engine, 2 others and myself created a complete 3D horror game. We had no previous experience with the engine which made the process a lot of fun!</p>
+					  <p>Using the Godot game engine, 2 others and myself created a complete 3D horror game during a 48 hour game jam (hackathon). We had no previous experience with the engine which made the process a lot of fun!</p>
                       <p>The game is available for download here:</p>
                       <a href="https://tehzwen.itch.io/the-darkness-beneath">https://tehzwen.itch.io/the-darkness-beneath</a>
 					</Tab.Pane>
@@ -92,6 +92,7 @@ export default class Projects extends Component {
 				</Col>
 			  </Row>
 			</Tab.Container>
+			<br/>
             </div>
 		);
 	}
