@@ -23,8 +23,11 @@ export default class Projects extends Component {
 					<Nav.Item>
 					  <Nav.Link eventKey={3}>Custom Discord Bot</Nav.Link>
 					</Nav.Item>
+					<Nav.Item>
+					  <Nav.Link eventKey={4}>This Site</Nav.Link>
+					</Nav.Item>
                     <Nav.Item>
-                      <Nav.Link eventKey={4}>Other Projects</Nav.Link>
+                      <Nav.Link eventKey={5}>Other Projects</Nav.Link>
 					</Nav.Item>
 				  </Nav>
 				</Col>
@@ -45,7 +48,13 @@ export default class Projects extends Component {
                       <p>Source available here:</p>
                       <a href="https://github.com/lukasjenks/davisbot">https://github.com/lukasjenks/davisbot</a>
                     </Tab.Pane>
-                    <Tab.Pane eventKey={4}>
+					<Tab.Pane eventKey={4}>
+					  <p>The site you're reading off of right now! A very simple portfolio site
+					  made in React.js/Golang.</p>
+					  <p>Source available here:</p>
+					  <a href="https://github.com/lukasjenks/blog-site">https://github.com/lukasjenks/blog-site</a>
+					</Tab.Pane>
+                    <Tab.Pane eventKey={5}>
                       <p>More solo projects to be listed here soon as I continue with code cleanup and licensing of older code projects. Some projects not listed here can be found on my github page: </p>
                       <a href="https://github.com/lukasjenks">https://github.com/lukasjenks</a>
                     </Tab.Pane>

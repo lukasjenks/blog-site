@@ -62,6 +62,22 @@ export default class Blog extends Component {
         });
     }
 
+	getLinks = () => {
+		let linkUrls = [];
+		if (this.state.selectedEntry.media &&
+		    this.state.selectedEntry.media.links &&
+			this.state.selectedEntry.media.links.length > 0) {
+			for (let linkUrl of this.state.selectedEntry.media.links) {
+				linkUrls.push(linkUrl);
+			}
+		}
+		return linkUrls.map((linkUrl, index) => {
+			return (
+			    <a href={linkUrl}>{linkUrl}</a>
+			)
+		});
+	}
+
     render() {
         if (this.state.entries && this.state.entries.length > 0) {
             return (
@@ -88,6 +104,7 @@ export default class Blog extends Component {
 								</p>
 								<br/>
 								{this.getVideos()}
+								{this.getLinks()}
 								<br/>
                             </Col>
                         </Row>

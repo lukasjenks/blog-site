@@ -9,8 +9,10 @@ export default class Home extends Component {
 			<Container>
 				<Jumbotron>
 					<h2>Welcome!</h2>
-					<p>My name is Lukas Jenks and I'm a software engineer and web developer based in Edmonton, Alberta.
-					This is my personal blog/portfolio site.</p>
+					<p>My name is Lukas Jenks and I'm a software engineer who
+					loves programming and exploring the problems software can
+					solve and its limits. I'm currently based in Edmonton,
+					Alberta. This is my personal blog/portfolio site.</p>
 				</Jumbotron>
 				<Link to="/about">
 					<Button bsStyle="primary">About</Button>
