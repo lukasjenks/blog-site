@@ -74,7 +74,7 @@ export default class Blog extends Component {
 		return linkUrls.map((linkUrl, index) => {
 			return (
 			    <a href={linkUrl}>{linkUrl}</a>
-			)
+			);
 		});
 	}
 
@@ -99,7 +99,7 @@ export default class Blog extends Component {
                                 </Nav>
                             </Col>
                             <Col sm={10}>
-								<p style={{marginBottom: "10px"}}>
+								<p className="entry-text">
 								{this.state.selectedEntry.entryText}
 								</p>
 								<br/>
